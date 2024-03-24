@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "init": "^0.1.2",
+    "inquirer": "^9.2.15",
+    "todo-prac4": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7"
+  },
+  "name": "todo-prac4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "bin": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
