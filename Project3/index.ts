@@ -35,7 +35,7 @@ while(loop) {
 
     }
     if (todo.length > 0){
-        console.log("Your todo list:\n")
+        console.log("Your todo list:")
       todo.forEach(todo => {
         console.log(todo)
       });

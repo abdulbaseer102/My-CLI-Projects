@@ -1,18 +1,58 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
-const systemGenratedNo = Math.floor(Math.random() * 10);
+const systemGeneratedNo = Math.floor(Math.random() * 11);
 const answers = await inquirer.prompt([
     {
         type: 'number',
-        name: 'Userguess',
-        message: ' Write Your Guess b/w 0 to 10:'
+        name: 'Userguess1',
+        message: 'First try: Write Your Guess between 0 to 10:'
+    },
+    {
+        type: 'number',
+        name: 'Userguess2',
+        message: 'Second try: Write Your Guess between 0 to 10:'
+    },
+    {
+        type: 'number',
+        name: 'Userguess3',
+        message: 'Third try: Write Your Guess between 0 to 10:'
     }
 ]);
-const { Userguess } = answers;
-console.log(Userguess, "Userguess", systemGenratedNo, "SYs");
-if (Userguess === systemGenratedNo) {
-    console.log('Omg Your Answer is correct\n You Win!');
+const { Userguess1, Userguess2, Userguess3 } = answers;
+if (Userguess1 === systemGeneratedNo || Userguess2 === systemGeneratedNo || Userguess3 === systemGeneratedNo) {
+    console.log('Congratulations! Your answer is correct. Now Go To the next level');
+    const systemGeneratedNo = Math.floor(Math.random() * 11);
+    const answers = await inquirer.prompt([
+        {
+            type: 'number',
+            name: 'Userguess1',
+            message: 'First try: Write Your Guess between 0 to 10:'
+        },
+        {
+            type: 'number',
+            name: 'Userguess2',
+            message: 'Second try: Write Your Guess between 0 to 10:'
+        },
+        {
+            type: 'number',
+            name: 'Userguess3',
+            message: 'Third try: Write Your Guess between 0 to 10:'
+        }
+    ]);
+    const { Userguess1, Userguess2, Userguess3 } = answers;
+    if (Userguess1 === systemGeneratedNo || Userguess2 === systemGeneratedNo || Userguess3 === systemGeneratedNo) {
+        console.log('Congratulations! Your answer is correct. You Win!');
+        console.log("User guesses:", Userguess1, Userguess2, Userguess3);
+        console.log("System generated number:", systemGeneratedNo);
+        console.log("Score:", 100);
+    }
+    else {
+        console.log("Better luck next time!");
+        console.log("Score:", 50);
+    }
 }
 else {
-    console.log('Please Try Again Batter Luck Next Time!');
+    console.log("Better luck next time!");
+    console.log("Score:", 0, "Nah");
+    console.log("System generated number:", systemGeneratedNo);
 }

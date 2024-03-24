@@ -1,4 +1,6 @@
 #! /usr/bin/env node
+import inquirer from "inquirer";
+console.log("Make Sure There is Only 3 Studunt And Studunt Name's Are:Rehan Or Ahsen Or Ahmad")
 class School {
    name: string;
    students: Student[] = [];
@@ -58,8 +60,9 @@ class Course {
         this.schoolName = schoolName;
     }
 }
-
-//school
+type ans = {
+    UserName: string;
+};
 let School1 = new School("G.B.H.S.T")
 let School2 = new School("G.B.P.S.T")
 let School3 = new School("G.G.P.S.T")
@@ -81,27 +84,39 @@ let course1 = new Course("Maths", School1.name);
 let course2 = new Course("Science", School2.name);
 let course3 = new Course("English", School3.name);
 
-//Teacher
-School1.addTeacher(t1)
 
-School2.addTeacher(t2)
+async function getUserInput() {
+    const answerss: ans = await inquirer.prompt([
+        {
+            type: "input", // Use "input" instead of "string" for text input
+            name: "UserName",
+            message: "Please Enter A Student Name:"
+        }
+    ]);
+    
+    const { UserName } = answerss;
+    if (UserName === "Ahesn" || UserName === "Ahasan"|| UserName === "ahasan"|| UserName === "ahasn"|| UserName === "ahesn" ){
+        School1.addTeacher(t1);
+        School1.addstudent(std1);
+        School1.addcourses(course1);
+        console.log(School1);
+    } else if (UserName === "Rehan"||UserName=== "rehan") {
+        School2.addTeacher(t2);
+        School2.addstudent(std2);
+        School2.addcourses(course2);
+        console.log(School2);
+    } else if (UserName === "Ahmad"||UserName === "ahmad") {
+        School3.addTeacher(t3);
+        School3.addstudent(std3);
+        School3.addcourses(course3);
+        console.log(School3);
+}
+}
+getUserInput();
 
-School3.addTeacher(t3 as Teacher)
 
-//Student
 
-School1.addstudent(std1)
 
-School2.addstudent(std2)
 
-School3.addstudent(std3)
 
-//Course
 
-School1.addcourses(course1);
-School2.addcourses(course2);
-School3.addcourses(course3);
-
-console.log(School1)
-console.log(School2)
-console.log(School3)

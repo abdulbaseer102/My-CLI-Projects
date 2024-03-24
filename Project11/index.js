@@ -71,8 +71,8 @@ do {
     await service(user);
     let choice = await inquirer.prompt({
         type: "input",
-        name: "cho",
+        name: "Abdulbaseer",
         message: "if you want to perform an other opertaion press y",
     });
-    var a = choice.cho;
+    var a = choice.Abdulbaseer;
 } while (a == 'y' || a == "Y");

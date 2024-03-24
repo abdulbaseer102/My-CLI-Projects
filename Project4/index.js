@@ -8,11 +8,11 @@ let Convertion = {
     },
     "GBP": {
         "USD": 1.21,
-        "PKR": 271.79,
+        "PKR": 350.477,
         "GBP": 1
     },
     "USD": {
-        "PKR": 225.50,
+        "PKR": 278.000,
         "GBP": 0.83,
         "USD": 1
     }
